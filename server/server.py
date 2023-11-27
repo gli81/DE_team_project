@@ -12,8 +12,10 @@ from flask import Flask
 app = Flask(__name__)
 
 # routing 
-
 @app.route("/")
+def query_nutrient():
+    pass
+
 
 if __name__ == "__main__":
     app.run(debug=True)
