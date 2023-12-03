@@ -12,8 +12,13 @@ from flask import Flask
 app = Flask(__name__)
 
 # routing 
-@app.route("/")
+@app.route("/query_neutrient")
 def query_nutrient():
+    pass
+
+
+@app.route("/query_some")
+def query_one():
     pass
 
 
