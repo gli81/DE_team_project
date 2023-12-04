@@ -18,12 +18,20 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     ## make a query to get all distinct nutrients in our database
-    return "First page, query for all nutrients\nmake a dropdown menu\nmake a button"
+    return {
+        "first": "page",
+        "return": "index page",
+        "make": "a drop down menu",
+        "and": "a button"
+    }
 
 @app.route("/query_one")
 def query_one():
     ## make a query to get {maybe 5} food with that nutrient
-    return "Result page\n display results for the selected nutrient"
+    return {
+        "Result": "page",
+        "display": "results for the selected nutrient"
+    }
 
 
 if __name__ == "__main__":
