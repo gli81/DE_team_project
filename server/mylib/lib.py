@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+## do CRUD here
+
 from databricks import sql
 import pandas as pd
 from dotenv import load_dotenv

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-## do CRUD now, include flask later
+## just a flask api
 
 
 # from databricks import sql
@@ -11,15 +11,19 @@ from flask import Flask
 
 app = Flask(__name__)
 
+## do check database here
+
+
 # routing 
-@app.route("/query_neutrient")
-def query_nutrient():
-    pass
+@app.route("/")
+def index():
+    ## make a query to get all distinct nutrients in our database
+    return "First page, query for all nutrients\nmake a dropdown menu\nmake a button"
 
-
-@app.route("/query_some")
+@app.route("/query_one")
 def query_one():
-    pass
+    ## make a query to get {maybe 5} food with that nutrient
+    return "Result page\n display results for the selected nutrient"
 
 
 if __name__ == "__main__":
