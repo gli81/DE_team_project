@@ -5,7 +5,7 @@ import sqlite3
 import csv
 
 
-def load(dataset="data/food_new.csv"):
+def load(dataset="../data/food_new.csv"):
     """Transforms and Loads data into the local SQLite3 database"""
     payload = csv.reader(open(dataset, newline=""), delimiter=",")
     # skips the header of csv
