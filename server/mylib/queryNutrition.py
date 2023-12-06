@@ -34,7 +34,8 @@ def get_column_names(database_file, table_name):
 
 if __name__ == "__main__":
     # Test the function
-    database_file = "FoodNutritionDB.db"
-    table_name = "FoodNutritionDB"
-    columns = get_column_names(database_file, table_name)
-    print("Column Names:", columns)
+    pass
+    # database_file = "FoodNutritionDB.db"
+    # table_name = "FoodNutritionDB"
+    # columns = get_column_names(database_file, table_name)
+    # print("Column Names:", columns)

@@ -42,8 +42,9 @@ def query_food(nutrition, table_name):
 
 if __name__ == "__main__":
     # Test the function
-    nutrition = "Protein"
-    table_name = "FoodNutritionDB"
-    query_food(nutrition, table_name)
+    # nutrition = "Protein"
+    # table_name = "FoodNutritionDB"
+    # query_food(nutrition, table_name)
     # print("Query Executed")
     # print("Query Logged")
+    pass

@@ -106,4 +106,4 @@ def load(dataset="../data/food_new.csv"):
 
 
 # Call the function to load the data
-load()
+# load()

@@ -9,10 +9,14 @@
 # import os
 from flask import Flask, render_template, request, jsonify
 from mylib.extract import extract
+from mylib.transform_load import load
+from mylib.queryFood import query_food
+from mylib.queryNutrition import get_column_names
 
 app = Flask(__name__)
 
 ## do check database here
+extract()
 
 
 # routing 
