@@ -7,7 +7,7 @@
 # import pandas as pd
 # from dotenv import load_dotenv
 # import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -22,6 +22,15 @@ def index():
     return render_template("index.html", nuts = nuts)
     return {
         "nutrients": ['Alpha CaroteneBeta Carotene']
+    }
+
+@app.route("/index_for_react")
+def index_():
+    ## make a query to get all distinct nutrients in our database
+    # nuts = ["Alpha Carotene", "Beta Carotene", ""]
+    # return render_template("index.html", nuts = nuts)
+    return {
+        "nutrients": ["Alpha Carotene","Beta Carotene"]
     }
 
 @app.route("/query_one")
@@ -48,7 +57,14 @@ def query_one():
 
 @app.route("/members")
 def members():
-    return {"members": ["m1", "m2"]}
+    # return "fuck you react"
+
+    # data = {"members": ["m1", "m2"]}
+    # response = jsonify(data)
+    # response.headers["Content-Type"] = "application/json"
+    # print(response.json)
+    response = {"members": ["m1", "m2"]}
+    return response
 
 
 if __name__ == "__main__":

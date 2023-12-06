@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react"
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState("");
   useEffect(() => {
-    fetch("/members")
+    fetch("/index_for_react")
     .then(
       (res) => {
-        // console.log(res);
-        res.json()
+        if (res.ok) {
+          const rslt = res.json()
+          console.log(rslt)
+          return rslt
+        } else {
+          throw new Error("Bad response")
+        }
       }
-    ).then(
+    )
+    .then(
       js => {
         console.log(js);
         setData(js);
@@ -22,11 +28,13 @@ function App() {
     );
   }, []);
   return (
-    <>
-      <div className="App">
-        {JSON.stringify(data, null, 2)}
-      </div>
-    </>
+    <div className="App">
+      <ul>
+        {data.nutrients.map(
+          (item, index) => (<li key={index}>{item}</li>)
+        )}
+      </ul>
+    </div>
   );
 }
 
