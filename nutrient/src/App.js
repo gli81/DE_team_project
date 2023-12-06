@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({});
   useEffect(() => {
     fetch("/index_for_react")
     .then(
@@ -29,13 +29,18 @@ function App() {
   }, []);
   return (
     <div className="App">
+      {/* {data.nutrients} */}
       <ul>
-        {data.nutrients.map(
-          (item, index) => (<li key={index}>{item}</li>)
-        )}
+        {data.nutrients && data.nutrients.length > 0 ? (
+          data.nutrients.map(
+            (item, index) => 
+              <li key={index}>{item}</li>
+          )
+        ) : (<li>no items found</li>)}
       </ul>
     </div>
   );
+  // return <div>nothing</div>
 }
 
 export default App;
