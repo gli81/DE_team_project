@@ -22,7 +22,7 @@ def get_column_names(database_file, table_name):
         # Remove the first two items
         final_columns = modified_columns[2:]
 
-        print(final_columns)
+        # print(final_columns)
 
         return final_columns
 

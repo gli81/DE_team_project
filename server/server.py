@@ -12,27 +12,26 @@ from mylib.extract import extract
 from mylib.transform_load import load
 from mylib.queryFood import query_food
 from mylib.queryNutrition import get_column_names
+import os
 
 app = Flask(__name__)
+DB_NAME = "FoodNutritionDB.db"
 
 ## do check database here
-extract()
-load()
-database_file = "FoodNutritionDB.db"
-table_name = "FoodNutritionDB"
-columns = get_column_names(database_file, table_name)
-print(columns)
-exit()
+if not os.path.exists(DB_NAME):
+    extract()
+    load()
+
+# exit()
 
 
 # routing
 @app.route("/")
 def index():
     ## make a query to get all distinct nutrients in our database
-    nuts = ["Alpha Carotene", "Beta Carotene", ""]
-    return render_template("index.html", nuts=nuts)
-    return {"nutrients": ["Alpha CaroteneBeta Carotene"]}
-
+    columns = get_column_names(DB_NAME, "FoodNutritionDB")
+    # nuts = ["Alpha Carotene", "Beta Carotene", ""]
+    return render_template("index.html", nuts=columns)
 
 @app.route("/index_for_react")
 def index_():
