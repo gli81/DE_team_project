@@ -17,6 +17,7 @@ app = Flask(__name__)
 
 ## do check database here
 extract()
+load()
 
 
 # routing 
