@@ -7,7 +7,7 @@
 # import pandas as pd
 # from dotenv import load_dotenv
 # import os
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -19,10 +19,7 @@ app = Flask(__name__)
 def index():
     ## make a query to get all distinct nutrients in our database
     return {
-        "first": "page",
-        "return": "index page",
-        "make": "a drop down menu",
-        "and": "a button"
+        "nutrients": ['Alpha CaroteneBeta Carotene']
     }
 
 @app.route("/query_one")
@@ -32,6 +29,16 @@ def query_one():
         "Result": "page",
         "display": "results for the selected nutrient"
     }
+    abab = jsonify({
+        "Result": "page",
+        "display": "results for the selected nutrient"
+    })
+    print(abab)
+    return abab
+
+@app.route("/members")
+def members():
+    return {"members": ["m1", "m2"]}
 
 
 if __name__ == "__main__":
