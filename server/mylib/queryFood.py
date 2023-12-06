@@ -36,7 +36,7 @@ def query_food(nutrition, table_name):
     # log_query(f"{query}")
 
     # return a list of foods
-    print(result)
+    # print(result)
     return result
 
 

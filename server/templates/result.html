@@ -9,11 +9,22 @@
 <body>
 
     <div>
-        <header>{{ selected }}</header>
+        <h1>{{ selected }}</h1>
+    </div>
+
+    <div>
+        <table>
+            {% for row in table %}
+                <tr>
+                    <td>{{ row }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
     </div>
     
 
-    <button id="submitButton" onclick="bakcHome()">Submit</button>
+    <button id="submitButton" onclick="bakcHome()">Home</button>
 
     <script>
         function bakcHome() {
