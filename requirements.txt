@@ -8,8 +8,9 @@ requests==2.26.0
 ruff==0.0.284
 ## databricks
 pandas
-python-dotenv
-databricks-sql-connector
+# python-dotenv
+# databricks-sql-connector
 
 ## for server to receive requests
 flask
+sqlite3
