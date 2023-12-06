@@ -18,26 +18,29 @@ app = Flask(__name__)
 ## do check database here
 extract()
 load()
+database_file = "FoodNutritionDB.db"
+table_name = "FoodNutritionDB"
+columns = get_column_names(database_file, table_name)
+print(columns)
+exit()
 
 
-# routing 
+# routing
 @app.route("/")
 def index():
     ## make a query to get all distinct nutrients in our database
     nuts = ["Alpha Carotene", "Beta Carotene", ""]
-    return render_template("index.html", nuts = nuts)
-    return {
-        "nutrients": ['Alpha CaroteneBeta Carotene']
-    }
+    return render_template("index.html", nuts=nuts)
+    return {"nutrients": ["Alpha CaroteneBeta Carotene"]}
+
 
 @app.route("/index_for_react")
 def index_():
     ## make a query to get all distinct nutrients in our database
     # nuts = ["Alpha Carotene", "Beta Carotene", ""]
     # return render_template("index.html", nuts = nuts)
-    return {
-        "nutrients": ["Alpha Carotene","Beta Carotene"]
-    }
+    return {"nutrients": ["Alpha Carotene", "Beta Carotene"]}
+
 
 @app.route("/query_one")
 def query_one():
@@ -45,21 +48,12 @@ def query_one():
     selected = request.args.get("selectedOption")
     print(selected)
     table = ["aaa", "bbb", "ccc"]
-    return render_template(
-        "result.html",
-        selected = selected,
-        table = table
-    )
-    return {
-        "Result": "page",
-        "display": "results for the selected nutrient"
-    }
-    abab = jsonify({
-        "Result": "page",
-        "display": "results for the selected nutrient"
-    })
+    return render_template("result.html", selected=selected, table=table)
+    return {"Result": "page", "display": "results for the selected nutrient"}
+    abab = jsonify({"Result": "page", "display": "results for the selected nutrient"})
     print(abab)
     return abab
+
 
 @app.route("/members")
 def members():
