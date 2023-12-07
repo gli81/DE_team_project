@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # import pandas as pd
-from server import main
+from server import index
 
 def test_flask():
-    main()
+    index()
     assert 1==1
 
