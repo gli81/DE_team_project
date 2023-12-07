@@ -3,9 +3,9 @@ install:
 		pip install -r requirements.txt
 
 test:
-	cd server
+	cd server && python -m pytest -vv --cov=server test_*.py
 	# python -m pytest -vv --cov=main --cov=mylib test_*.py
-	python -m pytest -vv --cov=server test_*.py
+	
 
 format:	
 	black *.py 
