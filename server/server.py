@@ -56,7 +56,6 @@ def query_one():
 
 @app.route("/members")
 def members():
-    # return "fuck you react"
 
     # data = {"members": ["m1", "m2"]}
     # response = jsonify(data)
