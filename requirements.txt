@@ -14,3 +14,4 @@ pandas
 ## for server to receive requests
 flask
 # sqlite3 ## include in base
+gunicorn
