@@ -2,36 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta chaset="UTF-8">
-    <meta name=""viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4caf50; /* Green color */
+            margin-bottom: 30px;
+        }
+        .table {
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .table thead th {
+            background-color: #4caf50; /* Green header for table */
+            color: white;
+        }
+        #submitButton {
+            background-color: #4caf50; /* Green color for button */
+            border-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        #submitButton:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
+        }
+    </style>
 </head>
+
 <body>
-
-    <div>
-        <h1>{{ selected }}</h1>
+    <div class="container text-center">
+        <h1 class="fw-bold">{{ selected }}</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nutrition Facts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in table %}
+                    <tr>
+                        <td>{{ row }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button id="submitButton" class="btn" onclick="backHome()">Home</button>
     </div>
-
-    <div>
-        <table>
-            {% for row in table %}
-                <tr>
-                    <td>{{ row }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-
-    </div>
-    
-
-    <button id="submitButton" onclick="bakcHome()">Home</button>
 
     <script>
-        function bakcHome() {
-            // var selectedValue = document.getElementById('myDropdown').value;
+        function backHome() {
             window.location.href = '/';
         }
     </script>
-
 </body>
+
 </html>
