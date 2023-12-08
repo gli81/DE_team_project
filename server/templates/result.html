@@ -8,23 +8,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
         .container {
-            padding-top: 20px;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4caf50; /* Green color */
+            margin-bottom: 30px;
         }
         .table {
             margin-top: 20px;
+            border-radius: 5px;
+        }
+        .table thead th {
+            background-color: #4caf50; /* Green header for table */
+            color: white;
         }
         #submitButton {
-            margin-top: 20px;
+            background-color: #4caf50; /* Green color for button */
+            border-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        #submitButton:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
         }
     </style>
 </head>
 
 <body>
     <div class="container text-center">
-        <h1 class="fw-bold text-primary">{{ selected }}</h1>
+        <h1 class="fw-bold">{{ selected }}</h1>
         <div class="table-responsive">
             <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nutrition Facts</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {% for row in table %}
                     <tr>
@@ -34,7 +66,7 @@
                 </tbody>
             </table>
         </div>
-        <button id="submitButton" class="btn btn-primary" onclick="backHome()">Home</button>
+        <button id="submitButton" class="btn" onclick="backHome()">Home</button>
     </div>
 
     <script>
