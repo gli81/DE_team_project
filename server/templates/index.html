@@ -2,17 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta chaset="UTF-8">
-    <meta name=""viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
+
 <body>
-    <select id="myDropdown">
-        {% for nut in nuts %}
-        <option value="{{ nut }}">{{ nut }}</option>
-        {% endfor %}
-    </select>
-    <button type="button" onclick="submitOption()">Get Food</button>
+    <main>
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='nuts.jpg') }}" alt="Nuts Image" width="250" height="200" />
+            <h1 class="display-5 fw-bold">Nutrition Guide</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Find the Right Food For Your Nutrition Need</p>
+                <div class="d-flex justify-content-center">
+                    <select id="myDropdown" class="form-select" style="max-width: 300px;">
+                        {% for nut in nuts %}
+                        <option value="{{ nut }}">{{ nut }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="button" class="btn btn-primary btn-lg ms-2" onclick="submitOption()">Get Info</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script>
         function submitOption() {
@@ -22,4 +36,6 @@
         }
     </script>
 </body>
+
 </html>
+

@@ -2,36 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta chaset="UTF-8">
-    <meta name=""viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        .container {
+            padding-top: 20px;
+        }
+        .table {
+            margin-top: 20px;
+        }
+        #submitButton {
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
-
-    <div>
-        <h1>{{ selected }}</h1>
+    <div class="container text-center">
+        <h1 class="fw-bold text-primary">{{ selected }}</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    {% for row in table %}
+                    <tr>
+                        <td>{{ row }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button id="submitButton" class="btn btn-primary" onclick="backHome()">Home</button>
     </div>
-
-    <div>
-        <table>
-            {% for row in table %}
-                <tr>
-                    <td>{{ row }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-
-    </div>
-    
-
-    <button id="submitButton" onclick="bakcHome()">Home</button>
 
     <script>
-        function bakcHome() {
-            // var selectedValue = document.getElementById('myDropdown').value;
+        function backHome() {
             window.location.href = '/';
         }
     </script>
-
 </body>
+
 </html>

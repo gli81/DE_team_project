@@ -28,6 +28,7 @@ def index():
     # nuts = ["Alpha Carotene", "Beta Carotene", ""]
     return render_template("index.html", nuts=columns)
 
+
 @app.route("/index_for_react")
 def index_():
     ## make a query to get all distinct nutrients in our database
@@ -42,12 +43,8 @@ def query_one():
     ## make a query to get {maybe 5} food with that nutrient
     selected = request.args.get("selectedOption")
     food = query_food(selected, TABLE_NAME)
-    food = list(map(lambda x:x[0], food))
-    return render_template(
-        "result.html",
-        selected=selected,
-        table=food
-    )
+    food = list(map(lambda x: x[0], food))
+    return render_template("result.html", selected=selected, table=food)
     return {"Result": "page", "display": "results for the selected nutrient"}
     abab = jsonify({"Result": "page", "display": "results for the selected nutrient"})
     print(abab)
@@ -64,7 +61,6 @@ def members():
     # print(response.json)
     response = {"members": ["m1", "m2"]}
     return response
-    
 
 
 if __name__ == "__main__":
