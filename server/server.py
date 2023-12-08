@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
-
 ## just a flask api
 
-
-# from databricks import sql
-# import pandas as pd
-# from dotenv import load_dotenv
-# import os
 from flask import Flask, render_template, request, jsonify
 from mylib.extract import extract
 from mylib.transform_load import load

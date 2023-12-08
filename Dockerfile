@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 50505
 
-ENTRYPOINT ["gunicorn", "main:app"]
+WORKDIR /code/server
+
+ENTRYPOINT ["gunicorn", "server:app"]
