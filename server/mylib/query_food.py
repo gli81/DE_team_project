@@ -65,7 +65,8 @@ def query():
         with open(os.path.join(current_dir, "error_log.txt"), "a") as error_file:
             error_file.write(f"Error executing query: {e}\n")
         result = ["error"]
-    finally: return result
+    finally:
+        return result
 
 
 # query()
