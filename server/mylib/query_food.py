@@ -17,6 +17,7 @@ def log_query(query, result="none"):
 
 
 def query():
+    # print("got here")
     try:
         # Ensure the directory for the log file exists
         log_dir = os.path.dirname(LOG_FILE)
@@ -29,15 +30,17 @@ def query():
         server_h = os.getenv("SERVER_HOSTNAME")
         access_token = os.getenv("ACCESS_TOKEN")
         http_path = os.getenv("HTTP_PATH")
-
+        print(server_h, access_token, http_path)
         if not all([server_h, access_token, http_path]):
+            # print("missing")
             raise ValueError("One or more required environment variables are missing.")
-
+        # print("eeeeee")
         with sql.connect(
             server_hostname=server_h,
             http_path=http_path,
             access_token=access_token,
         ) as connection:
+            # print("set up connection")
             c = connection.cursor()
             # Modified SQL command to get column names
             c.execute("DESCRIBE TABLE food")
@@ -54,7 +57,6 @@ def query():
             result = modified_columns[1:-1]
             log_query("DESCRIBE TABLE food", result)
             c.close()
-            return result
 
     except Exception as e:
         # Log the error to a separate log file or console
@@ -62,6 +64,8 @@ def query():
         # Optionally, log the error to a separate log file
         with open(os.path.join(current_dir, "error_log.txt"), "a") as error_file:
             error_file.write(f"Error executing query: {e}\n")
+        result = ["error"]
+    finally: return result
 
 
-query()
+# query()

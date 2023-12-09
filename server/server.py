@@ -9,13 +9,13 @@ from mylib.query_nutrition import query_food
 import os
 
 app = Flask(__name__)
-DB_NAME = "FoodNutritionDB.db"
-TABLE_NAME = "FoodNutritionDB"
+# DB_NAME = "FoodNutritionDB.db"
+# TABLE_NAME = "FoodNutritionDB"
 
 ## do check database here
-if not os.path.exists(DB_NAME):
-    extract()
-    load()
+# if not os.path.exists(DB_NAME):
+extract()
+load()
 
 
 # routing
@@ -39,17 +39,17 @@ def index_():
 def query_one():
     ## make a query to get {maybe 5} food with that nutrient
     selected = request.args.get("selectedOption")
-    food = query_food(selected, TABLE_NAME)
-    food = list(map(lambda x:x[0], food))
+    food = query_food(selected)
+    # food = list(map(lambda x:x[0], food))
     return render_template(
         "result.html",
         selected=selected,
         table=food
     )
-    return {"Result": "page", "display": "results for the selected nutrient"}
-    abab = jsonify({"Result": "page", "display": "results for the selected nutrient"})
-    print(abab)
-    return abab
+    # return {"Result": "page", "display": "results for the selected nutrient"}
+    # abab = jsonify({"Result": "page", "display": "results for the selected nutrient"})
+    # print(abab)
+    # return abab
 
 
 @app.route("/members")
