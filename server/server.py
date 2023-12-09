@@ -2,10 +2,10 @@
 ## just a flask api
 
 from flask import Flask, render_template, request, jsonify
-from mylib.extract import extract
-from mylib.transform_load import load
-from mylib.queryFood import query_food
-from mylib.queryNutrition import get_column_names
+from mylib.extract_databricks import extract
+from mylib.transform_load_databricks import load
+from mylib.query_food import query
+from mylib.query_nutrition import query_food
 import os
 
 app = Flask(__name__)
@@ -17,14 +17,12 @@ if not os.path.exists(DB_NAME):
     extract()
     load()
 
-# exit()
-
 
 # routing
 @app.route("/")
 def index():
     ## make a query to get all distinct nutrients in our database
-    columns = get_column_names(DB_NAME, TABLE_NAME)
+    columns = query()
     # nuts = ["Alpha Carotene", "Beta Carotene", ""]
     return render_template("index.html", nuts=columns)
 
@@ -33,7 +31,7 @@ def index_():
     ## make a query to get all distinct nutrients in our database
     # nuts = ["Alpha Carotene", "Beta Carotene", ""]
     # return render_template("index.html", nuts = nuts)
-    columns = get_column_names(DB_NAME, TABLE_NAME)
+    columns = query()
     return {"nutrients": columns}
 
 

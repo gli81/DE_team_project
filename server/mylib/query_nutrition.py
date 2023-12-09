@@ -49,4 +49,4 @@ def query_food(nutrition):
         result = "error"
 
 
-query_food("Vitamins Vitamin B6")
+# query_food("Vitamins Vitamin B6")

@@ -16,9 +16,8 @@ def load(dataset="dbfs:/FileStore/data/food_new.csv"):
     # transform into a delta lakes table and store it 
     food.write.format("delta").mode("overwrite").saveAsTable("Food")
 
-    
-    num_rows = food.count()
-    print(num_rows)
+    # num_rows = food.count()
+    # print(num_rows)
     
     return "finished transform and load"
 
