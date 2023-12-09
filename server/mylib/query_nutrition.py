@@ -4,7 +4,7 @@ from databricks import sql
 from dotenv import load_dotenv
 
 # Define a global variable for the log file
-LOG_FILE = "../../query_log_nutrition.md"  # Replace with the absolute path
+LOG_FILE = "query_log_nutrition.md"
 
 
 def log_query(query, result="none"):
@@ -43,6 +43,7 @@ def query_food(nutrition):
             result = c.fetchall()
             result = [row[0] for row in result]
             log_query(query, result)
+            return result
             c.close()
     except Exception as e:
         print(f"Error executing query: {e}")
