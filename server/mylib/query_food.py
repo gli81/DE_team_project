@@ -52,13 +52,13 @@ def query():
 
             # Drop the first item from the modified_columns list
             result = modified_columns[1:-1]
-            log_query(f"DESCRIBE TABLE food", result)
+            log_query("DESCRIBE TABLE food", result)
             c.close()
             return result
 
     except Exception as e:
         # Log the error to a separate log file or console
-        print(f"Error executing query: {e}")
+        print("Error executing query:", e)
         # Optionally, log the error to a separate log file
         with open(os.path.join(current_dir, "error_log.txt"), "a") as error_file:
             error_file.write(f"Error executing query: {e}\n")
