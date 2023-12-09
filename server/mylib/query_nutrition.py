@@ -3,12 +3,15 @@ import os
 from databricks import sql
 from dotenv import load_dotenv
 
-# Define a global variable for the log file
-LOG_FILE = "query_log_nutrition.md"
+# Get the current directory
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Define a global variable for the log file with the full path
+LOG_FILE = os.path.join(current_dir, "query_log_nutrition.md")
 
 
 def log_query(query, result="none"):
-    """Adds to a query markdown file"""
+    """adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
         file.write(f"```sql\n{query}\n```\n\n")
         file.write(f"```response from databricks\n{result}\n```\n\n")
@@ -43,8 +46,8 @@ def query_food(nutrition):
             result = c.fetchall()
             result = [row[0] for row in result]
             log_query(query, result)
-            return result
             c.close()
+            return result
     except Exception as e:
         print(f"Error executing query: {e}")
         result = "error"

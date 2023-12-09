@@ -1,33 +1,38 @@
-"""Query the database"""
 import os
 from databricks import sql
 from dotenv import load_dotenv
 
-# Define a global variable for the log file
-LOG_FILE = "query_log_food.md"
+# Get the current directory
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Define a global variable for the log file with the full path
+LOG_FILE = os.path.join(current_dir, "query_log_food.md")
 
 
 def log_query(query, result="none"):
-    """Adds to a query markdown file"""
+    """adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
         file.write(f"```sql\n{query}\n```\n\n")
         file.write(f"```response from databricks\n{result}\n```\n\n")
 
 
 def query():
-    # Load environment variables
-    load_dotenv()
-
-    # Check if required environment variables are set
-    server_h = os.getenv("SERVER_HOSTNAME")
-    access_token = os.getenv("ACCESS_TOKEN")
-    http_path = os.getenv("HTTP_PATH")
-
-    if not all([server_h, access_token, http_path]):
-        print("One or more required environment variables are missing.")
-        return
-
     try:
+        # Ensure the directory for the log file exists
+        log_dir = os.path.dirname(LOG_FILE)
+        os.makedirs(log_dir, exist_ok=True)
+
+        # Load environment variables
+        load_dotenv()
+
+        # Check if required environment variables are set
+        server_h = os.getenv("SERVER_HOSTNAME")
+        access_token = os.getenv("ACCESS_TOKEN")
+        http_path = os.getenv("HTTP_PATH")
+
+        if not all([server_h, access_token, http_path]):
+            raise ValueError("One or more required environment variables are missing.")
+
         with sql.connect(
             server_hostname=server_h,
             http_path=http_path,
@@ -47,13 +52,16 @@ def query():
 
             # Drop the first item from the modified_columns list
             result = modified_columns[1:-1]
-            return result
+            log_query(f"DESCRIBE TABLE food", result)
             c.close()
-    except Exception as e:
-        print(f"Error executing query: {e}")
-        result = "error"
+            return result
 
-    log_query("DESCRIBE TABLE food", result)
+    except Exception as e:
+        # Log the error to a separate log file or console
+        print(f"Error executing query: {e}")
+        # Optionally, log the error to a separate log file
+        with open(os.path.join(current_dir, "error_log.txt"), "a") as error_file:
+            error_file.write(f"Error executing query: {e}\n")
 
 
 query()
