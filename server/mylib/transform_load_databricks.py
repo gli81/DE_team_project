@@ -3,8 +3,8 @@ transform and load function
 """
 # import pandas as pd
 
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import monotonically_increasing_id
+# from pyspark.sql import SparkSession
+# from pyspark.sql.functions import monotonically_increasing_id
 
 def load(dataset="dbfs:/FileStore/data/food_new.csv"):
     # spark = SparkSession.builder.appName("Read CSV").getOrCreate()

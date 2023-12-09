@@ -30,7 +30,7 @@ def query():
         server_h = os.getenv("SERVER_HOSTNAME")
         access_token = os.getenv("ACCESS_TOKEN")
         http_path = os.getenv("HTTP_PATH")
-        print(server_h, access_token, http_path)
+        # print(server_h, access_token, http_path)
         if not all([server_h, access_token, http_path]):
             # print("missing")
             raise ValueError("One or more required environment variables are missing.")

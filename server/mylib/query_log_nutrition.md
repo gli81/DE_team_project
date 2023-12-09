@@ -70,3 +70,11 @@ SELECT Category FROM food ORDER BY Data_Fiber DESC LIMIT 10
 ['Cereal (General Mills Fiber One)', 'Wheat bran', "Nutritional powder mix (Kellogg's Special K20 Protein Water)", 'Cocoa powder', "Cereal (Kellogg's All-Bran)", 'Flax seeds', 'Chia seeds', 'Yeast', 'Cereal or granola bar (General Mills Fiber One Chewy Bar)', 'Cereal (Uncle Sam)']
 ```
 
+```sql
+SELECT Category FROM food ORDER BY Data_Carbohydrate DESC LIMIT 10
+```
+
+```response from databricks
+['Sugar substitute and sugar blend', 'Strawberry beverage powder', 'Sugar', 'Dietetic or low calorie mints', 'Dietetic or low calorie hard candy', 'Candy', 'Hard candy', 'Chewing gum', 'Licorice', 'Gumdrops']
+```
+

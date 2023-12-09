@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 ## just a flask api
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from mylib.extract_databricks import extract
 from mylib.transform_load_databricks import load
 from mylib.query_food import query
 from mylib.query_nutrition import query_food
-import os
+# import os
 
 app = Flask(__name__)
 # DB_NAME = "FoodNutritionDB.db"
