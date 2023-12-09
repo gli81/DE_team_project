@@ -149,7 +149,7 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
 (insert screenshot of azure container app deployment web page)
 
-### Github Actions:
+### Github Actions
 - **Makefile & CICD:** The workflow includes running a `Makefile` to perform tasks such as installation (`make install`), testing (`make test`), code formatting (`make format`) with Python Black, linting (`make lint`) with Ruff, and an all-inclusive task (`make all`). This automation streamlines the data analysis process and enhances code quality.
 
 ### Data Engineering 
