@@ -165,7 +165,7 @@ We effectively leveraged key data engineering libraries, namely PySpark and data
 
 ### Load Test 
 
-Our microservice is capable of handling 10,000 requests per second.
+- `locustfile.py`: this script is used for load testing our web application, assessing how the server handles increased traffic and requests. Our microservice is capable of handling 10,000 requests per second.
 
 <img width="1422" alt="8982a2b29943c9a2893ed2ed35769bbf 2" src="https://github.com/gli81/DE_team_project/assets/143360909/1af6b5e5-032f-4ecd-9b54-12bf871679c3">
 
