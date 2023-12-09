@@ -34,7 +34,7 @@ The dataset utilized in our web application is sourced from the United States De
 
 Our team downloaded the original dataset and performed data cleaning and aggregation, transforming raw nutritional data into a more organized and analysis-ready format. The final dataset `food_new.csv` categorizes 35 different nutrient types and includes a diverse selection of 2429 food items, making it a valuable resource for nutritional analysis.
 
-### Dependencies Installation and Setup: 
+### Dependencies Installation and Setup
 
     - Create a Databricks workspace on Azure
 
@@ -119,7 +119,7 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
 (Insert screenshot of query result in datarbricks sql editor)
 
-#### Flask Web Application:
+#### Flask Web Application
 
 - **Functionality:** The web application enables users to choose a nutrient from a drop-down menu, processes this input to query its database for the top 10 foods highest in the selected nutrient, and then displays a detailed list of these foods on a results page.
 
@@ -133,16 +133,13 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
 - **Static Image:** The project contains a `nuts.ipg` image in the `static` folder providing a user-friendly website design. 
 
-#### Github Actions:
-- **Makefile & CICD:** The workflow includes running a `Makefile` to perform tasks such as installation (`make install`), testing (`make test`), code formatting (`make format`) with Python Black, linting (`make lint`) with Ruff, and an all-inclusive task (`make all`). This automation streamlines the data analysis process and enhances code quality.
-
 #### Web App Optimization:
 - **Gunicorn configuration file:** The `gunicorn.conf.py` optimize the performance and reliability of a Python web application in a production environment. It balances resource use with the ability to handle a significant number of concurrent requests.
 
 #### Docker Containerization:
 - **Dockerfile:** This Dockerfile containerizes a Flask app, setting up a Docker container with Python and Gunicorn to run the web application. It encapsulates the app's code and dependencies, simplifying deployment across different environments.
 
-### Azure Container Apps Deployment:
+#### Azure Container Apps Deployment:
 
 - **Azure Container Registry :** The Docker image is hosted on Azure Container Registry
 
@@ -152,13 +149,16 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
 (insert screenshot of azure container app deployment web page)
 
+### Github Actions:
+- **Makefile & CICD:** The workflow includes running a `Makefile` to perform tasks such as installation (`make install`), testing (`make test`), code formatting (`make format`) with Python Black, linting (`make lint`) with Ruff, and an all-inclusive task (`make all`). This automation streamlines the data analysis process and enhances code quality.
+
 ### Data Engineering 
 
 We effectively leveraged key data engineering libraries, namely PySpark and databricks-sql, to streamline our Databricks ETL (Extract, Transform, Load) and query processes. PySpark, the Python API for Apache Spark, was pivotal in transforming and loading operations on our datasets. Additionally, for querying purposes, we utilized the databricks-sql Python package. This allowed us to efficiently connect to and execute queries on a Databricks SQL endpoint.
 
 ### IAC (Infrastructure of Code) (Wait for Gavin to upload)
 
-### Check Format and Test Errors: 
+### Check Format and Test Errors
 1. Format code `make format`
 2. Lint code `make lint`
 3. Test coce `make test`
