@@ -6,8 +6,6 @@
 
 [![test](https://github.com/gli81/DE_team_project/actions/workflows/test.yml/badge.svg)](https://github.com/gli81/DE_team_project/actions/workflows/test.yml)
 
-(Insert GitHub Codespaces .devcontainer configuration)
-
 ## Auto Scaling Flask App Using Azure Container Platform
 
 [Nutrition Guide Web Application](https://nutfood.azurewebsites.net)
@@ -55,26 +53,26 @@ Our team downloaded the original dataset and performed data cleaning and aggrega
 
     - Specify installation requirements `requirements.txt`
 
-    ```
-    #devops
-    black==22.3.0
-    click==8.1.3 
-    pytest==7.1.3
-    pytest-cov==4.0.0
-    requests
-    #rust based linter
-    ruff==0.0.284
-    ## databricks
-    pandas
-    # python-dotenv
-    # databricks-sql-connector
-    ## for server to receive requests
-    flask
-    # sqlite3 ## include in base
-    gunicorn
-    python-dotenv
-    databricks-sql-connector
-    ```
+        ```
+        #devops
+        black==22.3.0
+        click==8.1.3 
+        pytest==7.1.3
+        pytest-cov==4.0.0
+        requests
+        #rust based linter
+        ruff==0.0.284
+        ## databricks
+        pandas
+        # python-dotenv
+        # databricks-sql-connector
+        ## for server to receive requests
+        flask
+        # sqlite3 ## include in base
+        gunicorn
+        python-dotenv
+        databricks-sql-connector
+        ```
 
     - install: `make install`
 
@@ -110,15 +108,13 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
     - querying nutritional data from a Databricks database (constructing a SQL query to select the top 10 food categories, ordered by a specified nutrition column. This column is dynamically determined based on the input argument 'nutrition'). Systematically logging the queries and their outcomes for documentation.
 
-(Insert DBFS, delta lake, pipeline screenshot)
+![0502d26848d2637015a6320e9e2861c9](https://github.com/gli81/DE_team_project/assets/143360909/6f094e98-279d-439d-bc5f-7ac6e0e671b4)
 
 #### Logging Result
 
 [query_log_food.md](./server/mylib/query_log_food.md)
 
 [query_log_nutrition.md](./server/mylib/query_log_nutrition.md)
-
-(Insert screenshot of query result in datarbricks sql editor)
 
 #### Flask Web Application
 
@@ -144,27 +140,28 @@ In our development process, we integrated advanced AI Pair Programming tools, sp
 
 - **Azure Container Registry :** The Docker image is hosted on Azure Container Registry
 
-(insert screenshot of docker image on azure)
+![2479112aa76904d4ed0ba763f1697cae](https://github.com/gli81/DE_team_project/assets/143360909/ebc9bffe-4d99-4e34-9e18-be5df0e236bf)
 
 - **Azure Container Apps Deployment:** The Flask app is successfully deployed on Azure Container Apps, providing a public endpoint for users to interact with the application.
 
-(insert screenshot of azure container app deployment web page)
+![28159b8b8af665698997e5eef762adfa](https://github.com/gli81/DE_team_project/assets/143360909/975f9f45-766d-405c-8aa3-85380793067b)
 
 ### Github Actions
 - **Makefile & CICD:** The workflow includes running a `Makefile` to perform tasks such as installation (`make install`), testing (`make test`), code formatting (`make format`) with Python Black, linting (`make lint`) with Ruff, and an all-inclusive task (`make all`). This automation streamlines the data analysis process and enhances code quality.
+
+### GitHub Codespaces .devcontainer Configuration
+
+![a6698159d1da08b65796cafffadfb31d](https://github.com/gli81/DE_team_project/assets/143360909/f5db5559-7b82-48c0-8cda-89a2fae34952)
 
 ### Data Engineering 
 
 We effectively leveraged key data engineering libraries, namely PySpark and databricks-sql, to streamline our Databricks ETL (Extract, Transform, Load) and query processes. PySpark, the Python API for Apache Spark, was pivotal in transforming and loading operations on our datasets. Additionally, for querying purposes, we utilized the databricks-sql Python package. This allowed us to efficiently connect to and execute queries on a Databricks SQL endpoint.
 
-### IAC (Infrastructure of Code) (Wait for Gavin to upload)
+### IaC (Infrastructure as Code) 
 
-### Check Format and Test Errors
-1. Format code `make format`
-2. Lint code `make lint`
-3. Test coce `make test`
+- `main.tf`: This file is a Terraform configuration script used for setting up infrastructure on Microsoft Azure using Infrastructure as Code (IaC) principles. It creates a resource group, sets up an App Service Plan for Linux, and deploys a Docker-containerized web app, configuring it with specific app settings and a site configuration suitable for a production environment.
 
-### Load Test 
+### Quantitative Assessment (Load Test)
 
 - `locustfile.py`: this script is used for load testing our web application, assessing how the server handles increased traffic and requests. 
 
