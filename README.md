@@ -9,6 +9,7 @@
 ## Auto Scaling Flask App Using Azure Container Platform
 
 [Nutrition Guide Web Application](https://nutfood.azurewebsites.net)
+[Demo Video](https://youtu.be/64BTJh-Hp-E)
 
 ### Architecture Diagram
 <img width="667" alt="Screen Shot 2023-12-09 at 8 34 39 PM" src="https://github.com/gli81/DE_team_project/assets/47194238/bd633c1c-45c2-42e5-be39-7cd3c4aa5e62">
