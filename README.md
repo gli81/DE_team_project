@@ -12,7 +12,8 @@
 
 [Nutrition Guide Web Application](https://nutfood.azurewebsites.net)
 
-### Architecture Diagram (Annie)
+### Architecture Diagram
+<img width="667" alt="Screen Shot 2023-12-09 at 8 34 39 PM" src="https://github.com/gli81/DE_team_project/assets/47194238/bd633c1c-45c2-42e5-be39-7cd3c4aa5e62">
 
 ### Overview 
 
@@ -165,7 +166,7 @@ We effectively leveraged key data engineering libraries, namely PySpark and data
 
 ### Load Test 
 
-- `locustfile.py`: this script is used for load testing our web application, assessing how the server handles increased traffic and requests. Our microservice is capable of handling 10,000 requests per second.
+- `locustfile.py`: this script is used for load testing our web application, assessing how the server handles increased traffic and requests. 
 
 <img width="1422" alt="8982a2b29943c9a2893ed2ed35769bbf 2" src="https://github.com/gli81/DE_team_project/assets/143360909/1af6b5e5-032f-4ecd-9b54-12bf871679c3">
 
@@ -173,9 +174,7 @@ We effectively leveraged key data engineering libraries, namely PySpark and data
 
 <img width="1419" alt="e4841b64b307f8abc4ee0bc24e161fa9" src="https://github.com/gli81/DE_team_project/assets/143360909/6a0f2992-1315-4142-a2be-e86e64ed083c">
 
-### Quantitative Assessment (Annie)
-
-The project must include a quantitative assessment of its reliability and stability. You must use data science fundamentals to describe system performance, e.g., average latency per request at different levels of requests per second (100, 1000, etc.). Think of the software system as a data science problem that needs to be described using data science principles.
+The load test is done using Locust. We set it to test 10,000 requests per second. However, the Github Codespace only has the capacity of sending 600 requests per second. Nevertheless, the result has been good with the current situation. The response time has been stable after the server has started. 
 
 ### Limitations and Potential Improvement
 
